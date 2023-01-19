@@ -31,6 +31,7 @@ GET /recipe/:recipeId
 ```
 ⚠️ Importante: 
 - Para crear, editar o eliminar una receta el usuario debe star logueado, tanto para ver la vista como para mandar los cambios a la BDD. Recordad el uso de los `middlewares` para esta parte.
+- Fijaros que hay una relación: al CREAR una nueva receta debemos coger el usuario que esté loguinado en ese momento y almacenar su ID en la base de datos. Sin embargo, cuando veamos el detalle de la receta, debemos ver su nombre completo.
 - Para que esta parte se considere hecha debe tener estilos (en móvil)
 - BONUS points: que un usuario sin loguear no vea las opciones que no puede llevar a cabo
 
