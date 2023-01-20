@@ -1,6 +1,6 @@
 # MasterCook
 
-¡Impresionante trabajo, equipo! Ya habéis descubierto una parte muy importante: vuestra app se llamará *MasterCook*, y será una app en la cual los usuarios puedan almacenar sus recetas. 
+¡Impresionante trabajo, equipo Antalya! Ya habéis descubierto una parte muy importante: vuestra app se llamará *MasterCook*, y será una app en la cual los usuarios puedan hacer ciertas acciones con recetas. 
 
 ![](recipe.jpeg)
 
@@ -17,22 +17,23 @@ Cada una de las recetas tendrá la siguiente estructura:
   creator: ObjectId de User, //¿quién está loguinado en el momento de crearla?
 }
 ```
+Con esta información, debéis:
+- Crear el modelo Recipe
+- Crear un archivo con un array de 10 recetas
+- Hacer un seed de la base de datos
 
-En el mismo repositorio que habéis empezado, debéis crear las siguientes rutas:
+Como habéis visto, en el modelo hay una relación. Sin embargo, en el archivo del seed no tenemos acceso a los objetos *request*, *response* y *next* para acceder a req.session.currentUser, así que, en el apartado "creator", podéis copiar y pegar `_id` de usuarios que hayáis creado previamente mediante el `signup`. 
+
+Los `_id` los podéis copiar y pegar de la base de datos mediante Mongo Compass. Así, en el array, cada receta tendrá un campo así:
 
 ```js
-GET /recipes 
-GET /recipes/new 
-POST /recipes/new
-GET /recipes/:recipeId/edit
-POST /recipes/:recipeId/edit
-GET /recipe/:recipeId/delete
-GET /recipe/:recipeId
+{
+  ...,
+  creator: '63c6f21b0629c422f95e0a7f'
+}
 ```
-⚠️ Importante: 
-- Para crear, editar o eliminar una receta el usuario debe star logueado, tanto para ver la vista como para mandar los cambios a la BDD. Recordad el uso de los `middlewares` para esta parte.
-- Fijaros que hay una relación: al CREAR una nueva receta debemos coger el usuario que esté loguinado en ese momento y almacenar su ID en la base de datos. Sin embargo, cuando veamos el detalle de la receta, debemos ver su nombre completo.
-- Para que esta parte se considere hecha debe tener estilos (en móvil)
-- BONUS points: que un usuario sin loguear no vea las opciones que no puede llevar a cabo
 
-📍 Cuando acabéis, debéis presentar vuestros avances en el punto de control para recibir las siguientes pistas.
+Estas recetas iniciales pueden tener todos el mismo creador o podéis coger _ids de diferentes usuarios, pero todos tienen que ser usuarios reales que existan en la base de datos.
+
+> 📍 Cuando acabéis, debéis presentar vuestros avances en el punto de control para recibir las siguientes pistas.
+
