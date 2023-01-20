@@ -13,7 +13,8 @@ Cada una de las recetas tendrá la siguiente estructura:
   time: Number, //tiempo de preparación en minutos
   level: String, //podrá ser "advanced", "easy", "medium"
   image: String,
-  ingredients: [String], //array de strings
+  ingredients: [String], //array de strings,
+  description: String, //pasos
   creator: ObjectId de User, //¿quién está loguinado en el momento de crearla?
 }
 ```
